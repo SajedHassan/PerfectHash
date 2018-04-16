@@ -2,5 +2,5 @@ package interfaces;
 
 public interface IHashTable<T> {
 
-	public T contains();
+	public T contains(T key);
 }
