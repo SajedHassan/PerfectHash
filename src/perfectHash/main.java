@@ -2,20 +2,18 @@ package perfectHash;
 
 import interfaces.IUniversalHash;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class main {
 
-    public static void main (String args[]){
+    public static void main (String args[]) throws FileNotFoundException {
 
-		// The name of the file to open.
+
+		ArrayList<Integer> keys = new ArrayList<>();
 		String fileName = "temp.txt";
-
-		// This will reference one line at a time
-		String line = null;
+		Scanner src = new Scanner(new File(fileName));
 
 		try {
 			// FileReader reads text files in the default encoding.
@@ -26,34 +24,19 @@ public class main {
 			BufferedReader bufferedReader =
 					new BufferedReader(fileReader);
 
-			while((line = bufferedReader.readLine()) != null) {
+			while(src.hasNext()) {
+				keys.add(src.nextInt());
+				PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys,keys.size() ^ 2);
+				LinearHashTable hashTable2 = new LinearHashTable(keys);
 
-				//TODO
-				//TODO
-				//TODO
 			}
 
-			// Always close files.
-			bufferedReader.close();
 		}
 		catch(FileNotFoundException ex) {
 			System.out.println(
 					"Unable to open file '" +
 							fileName + "'");
 		}
-		catch(IOException ex) {
-			System.out.println(
-					"Error reading file '"
-							+ fileName + "'");
-			// Or we could just do this:
-			// ex.printStackTrace();
-		}
-
-    	IUniversalHash universalHash = new UniversalHashMatrix(8);
-    	System.out.println(universalHash.getHashValue(5));
-    	System.out.println(universalHash.getHashValue(5));
-    	System.out.println(universalHash.getHashValue(5));
-    	System.out.println(universalHash.getHashValue(5));
 
     }
 }
