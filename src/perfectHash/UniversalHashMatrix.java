@@ -11,7 +11,7 @@ public class UniversalHashMatrix<T> implements IUniversalHash<T> {
 	BitSet[] hMatrix;
 
 	public UniversalHashMatrix(int numOfElements) {
-		this.numOfRows = (int) Math.floor(1 + Math.log(numOfElements) / Math.log(2));
+		this.numOfRows = (int) Math.ceil(Math.log(numOfElements) / Math.log(2));
 		hMatrix = new BitSet[numOfRows];
 		for (int i = 0; i < hMatrix.length; i++) {
 			hMatrix[i] = new BitSet(NUMOFCOLUMNS);
