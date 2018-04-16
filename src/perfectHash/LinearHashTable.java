@@ -18,7 +18,7 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 	}
 	private void createHashTable() {
 		boolean terminated = false;
-		int size = (int) Math.pow(2, Math.log(staticKeys.size())/Math.log(2));
+		int size = (int) Math.pow(2, Math.ceil(Math.log(staticKeys.size())/Math.log(2)));
 		while(!terminated) {
 			hashTable = new INode[size];
 			uniHash.generateNewRandomHashFunction();
