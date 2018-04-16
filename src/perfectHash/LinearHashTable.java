@@ -20,6 +20,7 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 		boolean terminated = false;
 		while(!terminated) {
 			hashTable = new INode[staticKeys.size()];
+			uniHash.generateRandomHashFunction();
 			for (T k : staticKeys) {
 				int i = uniHash.getHashValue(k);
 				if(hashTable[i] == null) {
@@ -53,8 +54,9 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 	}
 	@Override
 	public T contains(T k) {
-		// TODO Auto-generated method stub
-		return null;
+		int i = uniHash.getHashValue(k);
+		NodeN1<T> node = (NodeN1<T>) hashTable[i];
+		return node.getKey(k);
 	}
 
 }
