@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface IHashTable<T> {
+public interface IHashTable {
 
-	public T contains(T key);
+	public int contains(int key);
 }
