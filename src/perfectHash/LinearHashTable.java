@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import interfaces.IHashTable;
 import interfaces.INode;
 
-public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
-	private final ArrayList<T> staticKeys;
-	private INode<T> hashTable[];
-	private UniversalHashMatrix<T> uniHash;
-	public LinearHashTable(ArrayList<T> newKeys) {
+public class LinearHashTable implements IHashTable {
+	private final ArrayList<Integer> staticKeys;
+	private INode hashTable[];
+	private UniversalHashMatrix uniHash;
+	public LinearHashTable(ArrayList newKeys) {
 		staticKeys = newKeys;
-		uniHash = new UniversalHashMatrix<>(staticKeys.size());
+		uniHash = new UniversalHashMatrix(staticKeys.size());
 		createHashTable();
 		hashSecondLevel();
 	}
@@ -21,10 +21,10 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 		while(!terminated) {
 			hashTable = new INode[staticKeys.size()];
 			uniHash.generateNewRandomHashFunction();
-			for (T k : staticKeys) {
+			for (int k : staticKeys) {
 				int i = uniHash.getHashValue(k);
 				if(hashTable[i] == null) {
-					hashTable[i] = new NodeN1<T>();
+					hashTable[i] = new NodeN1();
 				}
 				hashTable[i].add(k,k);
 			}
@@ -34,18 +34,18 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 	}
 	private int getAllCollisions() {
 		int allCollisions = 0;
-		for (INode<T> n : hashTable) {
+		for (INode n : hashTable) {
 			if(n != null) {
-				NodeN1<T> cN = (NodeN1<T>) n;
+				NodeN1 cN = (NodeN1) n;
 				allCollisions += Math.pow(cN.getCollisions(),2);
 			}
 		}
 		return allCollisions;
 	}
 	private void hashSecondLevel() {
-		for (INode<T> n : hashTable) {
+		for (INode n : hashTable) {
 			if(n != null) {
-				NodeN1<T> cN = (NodeN1<T>) n;
+				NodeN1 cN = (NodeN1) n;
 				if(cN.getCollisions() > 0) {
 					cN.hashSecondLevel();
 				}
@@ -53,10 +53,10 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 		}
 	}
 	@Override
-	public T contains(T k) {
+	public int contains(int k) {
 		int i = uniHash.getHashValue(k);
-		NodeN1<T> node = (NodeN1<T>) hashTable[i];
-		return node.getKey(k);
+		NodeN1 node = (NodeN1) hashTable[i];
+		return (int)node.getKey(k);
 	}
 
 }

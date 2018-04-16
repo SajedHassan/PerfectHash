@@ -10,6 +10,10 @@ public class main {
     	System.out.println(universalHash.getHashValue(5));
     	System.out.println(universalHash.getHashValue(5));
     	System.out.println(universalHash.getHashValue(5));
-
+    	universalHash.generateNewRandomHashFunction();
+    	System.out.println(universalHash.getHashValue(5));
+    	System.out.println(universalHash.getHashValue(5));
+    	System.out.println(universalHash.getHashValue(5));
+    	System.out.println(universalHash.getHashValue(5));
     }
 }

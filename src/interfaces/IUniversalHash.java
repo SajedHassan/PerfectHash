@@ -1,8 +1,8 @@
 package interfaces;
 
-public interface IUniversalHash<T> {
+public interface IUniversalHash {
 
     public void generateNewRandomHashFunction ();
 
-	public int getHashValue(T key);
+	public int getHashValue(int key);
 }
