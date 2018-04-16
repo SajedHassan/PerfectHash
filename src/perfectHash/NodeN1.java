@@ -10,7 +10,6 @@ public class NodeN1<T extends Comparable<T>> implements INode<T> {
 	boolean collide = false;
 	int noCollisions = 0;
 	ArrayList<T> collideKeys;
-	T hashedArray[];
 	PerfectQuadraticHashTable<T> secondLevel;
 	NodeN1() {
 		value = null;
