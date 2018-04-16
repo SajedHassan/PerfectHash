@@ -2,7 +2,7 @@ package perfectHash;
 
 import java.util.ArrayList;
 
-public interface HashTable {
+public interface IHashTable {
 
     ArrayList<Comparable> keys  = new ArrayList<Comparable>();
 

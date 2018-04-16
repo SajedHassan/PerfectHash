@@ -1,6 +1,6 @@
 package perfectHash;
 
-public interface Universal_Hash {
+public interface IUniversalHash {
 
     int lengthOfKey = 32;
 
