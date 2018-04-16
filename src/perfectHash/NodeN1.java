@@ -11,7 +11,7 @@ public class NodeN1<T extends Comparable<T>> implements INode<T> {
 	int noCollisions = 0;
 	ArrayList<T> collideKeys;
 	T hashedArray[];
-
+	PerfectQuadraticHashTable<T> secondLevel;
 	NodeN1() {
 		value = null;
 	}
@@ -35,9 +35,9 @@ public class NodeN1<T extends Comparable<T>> implements INode<T> {
 	}
 
 	public T getKey(T key) {
-		// TODO
-		// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-		return null;
+		if(key.compareTo(value) == 0)
+			return value;
+		return secondLevel.contains(key);
 	}
 
 	@Override
@@ -48,8 +48,8 @@ public class NodeN1<T extends Comparable<T>> implements INode<T> {
 	public int getCollisions() {
 		return noCollisions;
 	}
-
+	
 	public void hashSecondLevel() {
-		//TODO <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+		secondLevel = new PerfectQuadraticHashTable<>(collideKeys, (int)Math.pow(noCollisions, 2));
 	}
 }
