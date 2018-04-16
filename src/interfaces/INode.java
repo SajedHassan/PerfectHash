@@ -1,4 +1,4 @@
-package perfectHash;
+package interfaces;
 
 public interface INode<T extends Comparable<T>> {
 	
