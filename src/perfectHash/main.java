@@ -26,11 +26,11 @@ public class main {
 
 			while(src.hasNext()) {
 				keys.add(src.nextInt());
-				PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys,keys.size() ^ 2);
-				LinearHashTable hashTable2 = new LinearHashTable(keys);
+				
 
 			}
-
+			PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys,keys.size() ^ 2);
+			LinearHashTable hashTable2 = new LinearHashTable(keys);
 		}
 		catch(FileNotFoundException ex) {
 			System.out.println(
