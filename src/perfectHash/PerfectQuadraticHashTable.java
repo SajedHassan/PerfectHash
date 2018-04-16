@@ -11,11 +11,12 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 	NodeN2[] table;
 	UniversalHashMatrix universalHash;
 	int size;
+
 	PerfectQuadraticHashTable(ArrayList<T> keys) {
 
 		this.keys = keys;
 		this.values = keys;
-		size = (int) Math.pow(2,(int) Math.ceil(Math.log(keys.size() * keys.size()) / Math.log(2)));
+		size = (int) Math.pow(2, (int) Math.ceil(Math.log(keys.size() * keys.size()) / Math.log(2)));
 		System.out.println("table size" + size);
 		universalHash = new UniversalHashMatrix(keys.size() * keys.size());
 		hash();
@@ -46,7 +47,7 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 	@Override
 	public T contains(T key) {
 		int index = universalHash.getHashValue(key);
-		if(table[index] != null && table[index].getKey().compareTo(key) == 0)
+		if (table[index] != null && table[index].getKey() != null && table[index].getKey().compareTo(key) == 0)
 			return (T) table[index].getKey();
 		return null;
 	}
