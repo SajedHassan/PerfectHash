@@ -5,16 +5,20 @@ import java.util.ArrayList;
 import interfaces.INode;
 
 public class NodeN1<T extends Comparable<T>> implements INode<T> {
+
 	T value;
 	boolean collide = false;
 	int noCollisions = 0;
 	ArrayList<T> collideKeys;
 	T hashedArray[];
 
+	NodeN1() {
+		value = null;
+	}
 	@Override
-	public void add(T key) {
+	public void add(T key,T value) {
 		if (!collide) {
-			value = key;
+			this.value = value;
 			collide = true;
 		} else {
 			if (noCollisions == 0) {

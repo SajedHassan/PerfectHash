@@ -5,7 +5,7 @@ import java.util.Random;
 
 import interfaces.IUniversalHash;
 
-public class UniversalHashMatrix implements IUniversalHash {
+public class UniversalHashMatrix<T> implements IUniversalHash<T> {
 	private int numOfRows;
 	private final int NUMOFCOLUMNS = 32;
 	BitSet[] hMatrix;
@@ -30,13 +30,13 @@ public class UniversalHashMatrix implements IUniversalHash {
 	}
 
 	@Override
-	public int getHashValue(int key) {
+	public int getHashValue(T key) {
 		int hashedValue = 0;
 
 		for (int i = 0; i < this.numOfRows; i++) {
 			int bitOfOperations = 0;
 			for (int j = this.NUMOFCOLUMNS - 1; j >= 0 ; j--) {
-				int maskedValue = key & (int)Math.pow(2, j);
+				int maskedValue = (int)key & (int)Math.pow(2, j);
 				if (maskedValue > 0 && hMatrix[i].get(j)) {
 					bitOfOperations++;
 				}
