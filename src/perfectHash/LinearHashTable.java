@@ -58,7 +58,10 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 	public T contains(T k) {
 		int i = uniHash.getHashValue(k);
 		NodeN1<T> node = (NodeN1<T>) hashTable[i];
-		return node.getKey(k);
+		if (node != null) {
+			return node.getKey(k);
+		}
+		return null;
 	}
 
 }

@@ -46,7 +46,8 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 	@Override
 	public T contains(T key) {
 		int index = universalHash.getHashValue(key);
-		return (T) table[index].getKey();
+		if(table[index] != null && table[index].getKey().compareTo(key) == 0)
+			return (T) table[index].getKey();
+		return null;
 	}
-
 }

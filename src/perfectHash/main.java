@@ -31,6 +31,17 @@ public class main {
 			}
 			PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys);
 			LinearHashTable hashTable2 = new LinearHashTable(keys);
+			System.out.println(hashTable2.contains(66));
+			System.out.println(hashTable2.contains(12));
+			System.out.println(hashTable2.contains(10));
+			System.out.println(hashTable2.contains(5));
+			System.out.println(hashTable2.contains(443));
+			System.out.println(hashTable2.contains(323));
+			System.out.println(hashTable2.contains(545454));
+			System.out.println(hashTable2.contains(7));
+			System.out.println(hashTable2.contains(6));
+
+
 		}
 		catch(FileNotFoundException ex) {
 			System.out.println(
