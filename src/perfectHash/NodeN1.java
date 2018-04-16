@@ -49,6 +49,6 @@ public class NodeN1<T extends Comparable<T>> implements INode<T> {
 	}
 	
 	public void hashSecondLevel() {
-		secondLevel = new PerfectQuadraticHashTable<>(collideKeys, (int)Math.pow(noCollisions, 2));
+		secondLevel = new PerfectQuadraticHashTable<>(collideKeys);
 	}
 }
