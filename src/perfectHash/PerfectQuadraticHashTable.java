@@ -14,6 +14,7 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T>{
 	PerfectQuadraticHashTable(ArrayList<T> keys, int M){
 
 		this.keys = keys;
+		this.values = keys;
 		table = new NodeN2[M];
 		for (int i = 0 ; i < M ; i++){
 			table[i] = new NodeN2();
