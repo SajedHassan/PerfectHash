@@ -10,17 +10,17 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 	ArrayList<T> values = new ArrayList<>();
 	NodeN2[] table;
 	UniversalHashMatrix universalHash;
-
+	int size;
 	PerfectQuadraticHashTable(ArrayList<T> keys, int M) {
 
 		this.keys = keys;
 		this.values = keys;
-		table = new NodeN2[M];
+		size = M;
 		for (int i = 0; i < M; i++) {
 			table[i] = new NodeN2();
 		}
 
-		universalHash = new UniversalHashMatrix(keys.size());
+		universalHash = new UniversalHashMatrix(keys.size() * keys.size());
 		hash();
 
 	}
@@ -30,6 +30,7 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 		while (!terminated) {
 			terminated = true;
 			universalHash.generateNewRandomHashFunction();
+			table = new NodeN2[size];
 			int index;
 			for (int i = 0; i < keys.size(); i++) {
 				index = universalHash.getHashValue(keys.get(i));
