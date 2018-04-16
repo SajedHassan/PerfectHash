@@ -9,10 +9,10 @@ import interfaces.INode;
 public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 	private final ArrayList<T> staticKeys;
 	private INode<T> hashTable[];
-	private UniverdalHashMatrix<T> uniHash;
+	private UniversalHashMatrix<T> uniHash;
 	public LinearHashTable(ArrayList<T> newKeys) {
 		staticKeys = newKeys;
-		uniHash = new UniverdalHashMatrix<>(staticKeys.size());
+		uniHash = new UniversalHashMatrix<>(staticKeys.size());
 		createHashTable();
 		hashSecondLevel();
 	}
@@ -20,7 +20,7 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 		boolean terminated = false;
 		while(!terminated) {
 			hashTable = new INode[staticKeys.size()];
-			uniHash.generateRandomHashFunction();
+			uniHash.generateNewRandomHashFunction();
 			for (T k : staticKeys) {
 				int i = uniHash.getHashValue(k);
 				if(hashTable[i] == null) {
