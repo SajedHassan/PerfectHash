@@ -1,10 +1,8 @@
 package perfectHash;
 
-public interface IUniversalHash {
+public interface IUniversalHash<T> {
 
-    int lengthOfKey = 32;
+    public void generateRandomHashFunction ();
 
-    int[][] generateRandomHashFunction ();
-
-    int[] getHashValue(Comparable key); // return h(x)
+	public int getHashValue(T key);
 }
