@@ -1,5 +1,7 @@
 package perfectHash;
 
+import interfaces.IUniversalHash;
+
 public class UniverdalHashMatrix<T> implements IUniversalHash<T> {
 	private int numOfRows;
 	private final int NUMOFCOLUMNS = 32;
