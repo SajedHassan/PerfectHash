@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class PerfectQuadraticHashTable<T> implements IHashTable<T>{
 
 	ArrayList<T> keys = new ArrayList<>();
+	ArrayList<T> values = new ArrayList<>();
 	NodeN2[] table ;
 	UniverdalHashMatrix universalHash;
 
@@ -14,6 +15,10 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T>{
 
 		this.keys = keys;
 		table = new NodeN2[M];
+		for (int i = 0 ; i < M ; i++){
+			table[i] = new NodeN2();
+		}
+
 		universalHash = new UniverdalHashMatrix(keys.size());
 		hash();
 
@@ -25,7 +30,7 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T>{
 		for (int i = 0 ; i < keys.size(); i++){
 			index = universalHash.getHashValue(keys.get(i));
 			if(!table[index].willCollide()) {
-				table[index].add((Comparable) keys.get(i));
+				table[index].add((Comparable) keys.get(i), (Comparable) values.get(i));
 			} else {
 				hash();
 			}
