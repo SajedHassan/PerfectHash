@@ -36,7 +36,9 @@ public class NodeN1<T extends Comparable<T>> implements INode<T> {
 	public T getKey(T key) {
 		if(key.compareTo(value) == 0)
 			return value;
-		return secondLevel.contains(key);
+		else if(secondLevel != null)
+			return secondLevel.contains(key);
+		return null;
 	}
 
 	@Override
