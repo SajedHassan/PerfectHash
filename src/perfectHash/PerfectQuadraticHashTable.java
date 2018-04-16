@@ -4,19 +4,19 @@ import interfaces.IHashTable;
 
 import java.util.ArrayList;
 
-public class PerfectQuadraticHashTable<T> implements IHashTable<T>{
+public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 
 	ArrayList<T> keys = new ArrayList<>();
 	ArrayList<T> values = new ArrayList<>();
-	NodeN2[] table ;
+	NodeN2[] table;
 	UniversalHashMatrix universalHash;
 
-	PerfectQuadraticHashTable(ArrayList<T> keys, int M){
+	PerfectQuadraticHashTable(ArrayList<T> keys, int M) {
 
 		this.keys = keys;
 		this.values = keys;
 		table = new NodeN2[M];
-		for (int i = 0 ; i < M ; i++){
+		for (int i = 0; i < M; i++) {
 			table[i] = new NodeN2();
 		}
 
@@ -25,15 +25,19 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T>{
 
 	}
 
-	private void hash (){
-		universalHash.generateNewRandomHashFunction();
-		int index ;
-		for (int i = 0 ; i < keys.size(); i++){
-			index = universalHash.getHashValue(keys.get(i));
-			if(!table[index].willCollide()) {
-				table[index].add((Comparable) keys.get(i), (Comparable) values.get(i));
-			} else {
-				hash();
+	private void hash() {
+		boolean terminated = false;
+		while (!terminated) {
+			terminated = true;
+			universalHash.generateNewRandomHashFunction();
+			int index;
+			for (int i = 0; i < keys.size(); i++) {
+				index = universalHash.getHashValue(keys.get(i));
+				if (!table[index].willCollide()) {
+					table[index].add((Comparable) keys.get(i), (Comparable) values.get(i));
+				} else {
+					terminated = false;
+				}
 			}
 		}
 	}
