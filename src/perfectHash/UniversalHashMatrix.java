@@ -5,13 +5,13 @@ import java.util.Random;
 
 import interfaces.IUniversalHash;
 
-public class UniversalHashMatrix implements IUniversalHash {
+public class UniversalHashMatrix<T> implements IUniversalHash<T> {
 	private int numOfRows;
 	private final int NUMOFCOLUMNS = 32;
 	BitSet[] hMatrix;
 
 	public UniversalHashMatrix(int numOfElements) {
-		this.numOfRows = (int) Math.ceil(Math.log(numOfElements) / Math.log(2));
+		this.numOfRows = (int) Math.floor(1 + Math.log(numOfElements) / Math.log(2));
 		hMatrix = new BitSet[numOfRows];
 		for (int i = 0; i < hMatrix.length; i++) {
 			hMatrix[i] = new BitSet(NUMOFCOLUMNS);
@@ -30,7 +30,7 @@ public class UniversalHashMatrix implements IUniversalHash {
 	}
 
 	@Override
-	public int getHashValue(int key) {
+	public int getHashValue(T key) {
 		int hashedValue = 0;
 
 		for (int i = 0; i < this.numOfRows; i++) {

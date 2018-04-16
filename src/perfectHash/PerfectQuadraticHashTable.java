@@ -4,14 +4,14 @@ import interfaces.IHashTable;
 
 import java.util.ArrayList;
 
-public class PerfectQuadraticHashTable implements IHashTable {
+public class PerfectQuadraticHashTable<T> implements IHashTable<T>{
 
-	ArrayList<Integer> keys = new ArrayList();
-	ArrayList values = new ArrayList();
+	ArrayList<T> keys = new ArrayList<>();
+	ArrayList<T> values = new ArrayList<>();
 	NodeN2[] table ;
 	UniversalHashMatrix universalHash;
 
-	PerfectQuadraticHashTable(ArrayList keys, int M){
+	PerfectQuadraticHashTable(ArrayList<T> keys, int M){
 
 		this.keys = keys;
 		table = new NodeN2[M];
@@ -38,9 +38,9 @@ public class PerfectQuadraticHashTable implements IHashTable {
 	}
 
 	@Override
-	public int contains(int key) {
+	public T contains(T key) {
 		int index = universalHash.getHashValue(key);
-		return (int)table[index].getKey();
+		return (T) table[index].getKey();
 	}
 
 }
