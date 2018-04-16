@@ -26,7 +26,7 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 				if(hashTable[i] == null) {
 					hashTable[i] = new NodeN1<T>();
 				}
-				hashTable[i].add(k);
+				hashTable[i].add(k,k);
 			}
 			int allCollisions = getAllCollisions();
 			terminated = allCollisions < 4 * staticKeys.size();
