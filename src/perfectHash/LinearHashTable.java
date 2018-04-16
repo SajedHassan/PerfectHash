@@ -18,8 +18,9 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 	}
 	private void createHashTable() {
 		boolean terminated = false;
+		int size = (int) Math.pow(2, Math.log(staticKeys.size())/Math.log(2));
 		while(!terminated) {
-			hashTable = new INode[staticKeys.size()];
+			hashTable = new INode[size];
 			uniHash.generateNewRandomHashFunction();
 			for (T k : staticKeys) {
 				int i = uniHash.getHashValue(k);
@@ -29,7 +30,7 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 				hashTable[i].add(k,k);
 			}
 			int allCollisions = getAllCollisions();
-			terminated = allCollisions < 4 * staticKeys.size();
+			terminated = allCollisions < 4 * size;
 		}
 	}
 	private int getAllCollisions() {
