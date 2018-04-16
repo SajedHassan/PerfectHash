@@ -29,7 +29,7 @@ public class main {
 				
 
 			}
-			PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys,keys.size() * keys.size());
+			PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys);
 			LinearHashTable hashTable2 = new LinearHashTable(keys);
 		}
 		catch(FileNotFoundException ex) {
