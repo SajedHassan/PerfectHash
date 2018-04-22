@@ -12,6 +12,9 @@ public class UniversalHashMatrix<T> implements IUniversalHash<T> {
 
 	public UniversalHashMatrix(int numOfElements) {
 		this.numOfRows = (int) Math.ceil(Math.log(numOfElements) / Math.log(2));
+		if (this.numOfRows == 0) {
+			this.numOfRows = 1;
+		}
 		hMatrix = new BitSet[numOfRows];
 		for (int i = 0; i < hMatrix.length; i++) {
 			hMatrix[i] = new BitSet(NUMOFCOLUMNS);
