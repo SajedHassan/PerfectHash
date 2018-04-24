@@ -44,6 +44,7 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 		}
 		return allCollisions;
 	}
+
 	private void hashSecondLevel() {
 		for (INode<T> n : hashTable) {
 			if(n != null) {
@@ -54,6 +55,7 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 			}
 		}
 	}
+
 	@Override
 	public T contains(T k) {
 		int i = uniHash.getHashValue(k);

@@ -37,6 +37,8 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 				index = universalHash.getHashValue(keys.get(i));
 				if (!table[index].willCollide()) {
 					table[index].add((Comparable) keys.get(i), (Comparable) values.get(i));
+				} else if (table[index].getKey().equals(keys.get(i))) {
+					continue;
 				} else {
 					terminated = false;
 				}

@@ -20,10 +20,6 @@ public class main {
 			FileReader fileReader =
 					new FileReader(fileName);
 
-			// Always wrap FileReader in BufferedReader.
-			BufferedReader bufferedReader =
-					new BufferedReader(fileReader);
-
 			while(src.hasNext()) {
 				keys.add(src.nextInt());
 				
