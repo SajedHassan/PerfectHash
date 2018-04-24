@@ -19,7 +19,7 @@ public class NodeN1<T extends Comparable<T>> implements INode<T> {
 		if (!collide) {
 			this.value = value;
 			collide = true;
-		} else if(key != value) {
+		} else if(key != this.value) {
 			if (collideKeys == null) {
 				collideKeys = new ArrayList<>();
 			}
