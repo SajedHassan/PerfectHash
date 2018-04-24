@@ -17,7 +17,9 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 		this.keys = keys;
 		this.values = keys;
 		size = (int) Math.pow(2, (int) Math.ceil(Math.log(keys.size() * keys.size()) / Math.log(2)));
-		
+		if (size == 0) {
+			size++;
+		}
 		System.out.println("table size" + size);
 		universalHash = new UniversalHashMatrix(keys.size() * keys.size());
 		hash();
