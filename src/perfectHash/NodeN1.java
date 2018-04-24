@@ -23,10 +23,9 @@ public class NodeN1<T extends Comparable<T>> implements INode<T> {
 			if (collideKeys == null) {
 				collideKeys = new ArrayList<>();
 			}
-			if(!collideKeys.contains(key)) {
-				collideKeys.add(key);
-				noCollisions++;
-			}
+			collideKeys.add(key);
+			noCollisions++;
+			
 		}
 	}
 
