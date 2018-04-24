@@ -54,6 +54,14 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 			}
 		}
 	}
+	
+	/*
+	 * 			if (table[index].getKey() != null && table[index].getKey().compareTo(keys.get(i)) == 0) {
+					continue;
+				}
+				quadratic solution for similar keys.
+	 * @see interfaces.IHashTable#contains(java.lang.Object)
+	 */
 	@Override
 	public T contains(T k) {
 		int i = uniHash.getHashValue(k);
