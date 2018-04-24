@@ -6,6 +6,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.management.RuntimeErrorException;
+
 public class main {
 
     public static void main (String args[]) throws FileNotFoundException {
@@ -14,7 +16,7 @@ public class main {
 		ArrayList<Integer> keys = new ArrayList<>();
 		String fileName = "test1.txt";
 		Scanner src = new Scanner(new File(fileName));
-
+		Scanner src2 = new Scanner(new File(fileName));
 		try {
 			// FileReader reads text files in the default encoding.
 			FileReader fileReader =
@@ -25,6 +27,11 @@ public class main {
 			}
 			PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys);
 			LinearHashTable hashTable2 = new LinearHashTable(keys);
+			while(src2.hasNext()) {
+				if(hashTable2.contains(src2.nextInt()) == null) {
+					throw new RuntimeErrorException(null, "Hash error");
+				}
+			}
 //			System.out.println(hashTable2.contains(66));
 //			System.out.println(hashTable2.contains(12));
 //			System.out.println(hashTable2.contains(10));
