@@ -12,7 +12,7 @@ public class main {
 
 
 		ArrayList<Integer> keys = new ArrayList<>();
-		String fileName = "temp.txt";
+		String fileName = "test1.txt";
 		Scanner src = new Scanner(new File(fileName));
 
 		try {
@@ -22,22 +22,18 @@ public class main {
 
 			while(src.hasNext()) {
 				keys.add(src.nextInt());
-				
-
 			}
 			PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys);
 			LinearHashTable hashTable2 = new LinearHashTable(keys);
-			System.out.println(hashTable2.contains(66));
-			System.out.println(hashTable2.contains(12));
-			System.out.println(hashTable2.contains(10));
-			System.out.println(hashTable2.contains(5));
-			System.out.println(hashTable2.contains(443));
-			System.out.println(hashTable2.contains(323));
-			System.out.println(hashTable2.contains(545454));
-			System.out.println(hashTable2.contains(7));
-			System.out.println(hashTable2.contains(6));
-
-
+//			System.out.println(hashTable2.contains(66));
+//			System.out.println(hashTable2.contains(12));
+//			System.out.println(hashTable2.contains(10));
+//			System.out.println(hashTable2.contains(5));
+//			System.out.println(hashTable2.contains(443));
+//			System.out.println(hashTable2.contains(323));
+//			System.out.println(hashTable2.contains(545454));
+//			System.out.println(hashTable2.contains(7));
+//			System.out.println(hashTable2.contains(6));
 		}
 		catch(FileNotFoundException ex) {
 			System.out.println(
@@ -52,16 +48,16 @@ public class main {
 			// ex.printStackTrace();
 		}
 
-    	IUniversalHash universalHash = new UniversalHashMatrix(8);
-    	System.out.println(universalHash.getHashValue(5));
-    	System.out.println(universalHash.getHashValue(5));
-    	System.out.println(universalHash.getHashValue(5));
-    	System.out.println(universalHash.getHashValue(5));
-    	universalHash.generateNewRandomHashFunction();
-    	System.out.println(universalHash.getHashValue(5));
-    	System.out.println(universalHash.getHashValue(5));
-    	System.out.println(universalHash.getHashValue(5));
-    	System.out.println(universalHash.getHashValue(5));
+//    	IUniversalHash universalHash = new UniversalHashMatrix(8);
+//    	System.out.println(universalHash.getHashValue(5));
+//    	System.out.println(universalHash.getHashValue(5));
+//    	System.out.println(universalHash.getHashValue(5));
+//    	System.out.println(universalHash.getHashValue(5));
+//    	universalHash.generateNewRandomHashFunction();
+//    	System.out.println(universalHash.getHashValue(5));
+//    	System.out.println(universalHash.getHashValue(5));
+//    	System.out.println(universalHash.getHashValue(5));
+//    	System.out.println(universalHash.getHashValue(5));
 
 
     }

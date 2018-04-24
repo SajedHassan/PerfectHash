@@ -20,7 +20,7 @@ public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 		if (size == 0) {
 			size++;
 		}
-		System.out.println("table size" + size);
+		System.out.println("table size " + size);
 		universalHash = new UniversalHashMatrix(keys.size() * keys.size());
 		hash();
 
