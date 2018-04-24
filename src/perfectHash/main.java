@@ -4,7 +4,9 @@ import interfaces.IUniversalHash;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class main {
 
@@ -25,6 +27,15 @@ public class main {
 			}
 			PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys);
 			LinearHashTable hashTable2 = new LinearHashTable(keys);
+			System.out.println("size " + keys.size());
+			Set<Integer> set = new HashSet<Integer>();
+			for (Integer integer : keys) {
+				set.add(integer);
+			}
+			System.out.println("Hash size " + set.size());
+			for (int i = 0; i < keys.size(); i++) {
+				System.out.println(hashTable1.contains(keys.get(i)));
+			}
 //			System.out.println(hashTable2.contains(66));
 //			System.out.println(hashTable2.contains(12));
 //			System.out.println(hashTable2.contains(10));
