@@ -44,7 +44,6 @@ public class main {
 					System.out.println("Ok1");
 				}
 			}
-			for (int i = 0; i < keys.size(); i++) {
 				while (src2.hasNext()) {
 					if (hashTable2.contains(src2.nextInt()) == null) {
 						throw new RuntimeErrorException(null, "Hash2 error");
@@ -61,7 +60,7 @@ public class main {
 				// System.out.println(hashTable2.contains(545454));
 				// System.out.println(hashTable2.contains(7));
 				// System.out.println(hashTable2.contains(6));
-			}
+
 		} catch (FileNotFoundException ex) {
 			System.out.println("Unable to open file '" + fileName + "'");
 		} catch (IOException ex) {
