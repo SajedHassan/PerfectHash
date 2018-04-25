@@ -22,8 +22,9 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 		if (size == 0) {
 			size++;
 		}
-		System.out.println("table size " + size);
+//		System.out.println("table size " + size);
 		while(!terminated) {
+			System.out.println("1");
 			hashTable = new INode[size];
 			uniHash.generateNewRandomHashFunction();
 			for (T k : staticKeys) {
@@ -34,8 +35,8 @@ public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 				hashTable[i].add(k,k);
 			}
 			int allCollisions = getAllCollisions();
-			System.out.println("SecondLevel " + allCollisions);
-			terminated = allCollisions < 4 * size;
+//			System.out.println("SecondLevel " + allCollisions);
+			terminated = allCollisions < 4 * staticKeys.size();
 		}
 	}
 	private int getAllCollisions() {

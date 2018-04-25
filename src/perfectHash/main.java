@@ -16,7 +16,7 @@ public class main {
 
 		ArrayList<Integer> keys = new ArrayList<>();
 		Set<Integer> set = new HashSet<Integer>();
-		String fileName = "test4.txt";
+		String fileName = "test2.txt";
 		Scanner src = new Scanner(new File(fileName));
 		Scanner src2 = new Scanner(new File(fileName));
 		try {
@@ -31,26 +31,27 @@ public class main {
 				keys.add(integer);
 			}
 			LinearHashTable hashTable2 = new LinearHashTable(keys);
+			System.out.println("================");
 			PerfectQuadraticHashTable hashTable1 = new PerfectQuadraticHashTable(keys);
 
-			System.out.println("size " + keys.size());
-
-			System.out.println("Hash size " + set.size());
-			for (int i = 0; i < keys.size(); i++) {
-				
-				if (hashTable1.contains(keys.get(i)) == null) {
-					throw new RuntimeErrorException(null, "Hash1 error");
-				} else {
-					System.out.println("Ok1");
-				}
-			}
-				while (src2.hasNext()) {
-					if (hashTable2.contains(src2.nextInt()) == null) {
-						throw new RuntimeErrorException(null, "Hash2 error");
-					} else {
-						System.out.println("Ok2");
-					}
-				}
+//			System.out.println("size " + keys.size());
+//
+//			System.out.println("Hash size " + set.size());
+//			for (int i = 0; i < keys.size(); i++) {
+//				
+//				if (hashTable1.contains(keys.get(i)) == null) {
+//					throw new RuntimeErrorException(null, "Hash1 error");
+//				} else {
+//					System.out.println("Ok1");
+//				}
+//			}
+//				while (src2.hasNext()) {
+//					if (hashTable2.contains(src2.nextInt()) == null) {
+//						throw new RuntimeErrorException(null, "Hash2 error");
+//					} else {
+//						System.out.println("Ok2");
+//					}
+//				}
 				// System.out.println(hashTable2.contains(66));
 				// System.out.println(hashTable2.contains(12));
 				// System.out.println(hashTable2.contains(10));
