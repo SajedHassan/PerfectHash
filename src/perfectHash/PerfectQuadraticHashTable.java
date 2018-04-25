@@ -3,19 +3,26 @@ package perfectHash;
 import interfaces.IHashTable;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PerfectQuadraticHashTable<T> implements IHashTable<T> {
 
 	ArrayList<T> keys = new ArrayList<>();
+	Set<T> set = new HashSet<T>();
 	ArrayList<T> values = new ArrayList<>();
 	NodeN2[] table;
 	UniversalHashMatrix universalHash;
 	int size;
 
 	PerfectQuadraticHashTable(ArrayList<T> keys) {
-
-		this.keys = keys;
-		this.values = keys;
+		for (T key : keys) {
+			set.add(key);
+		}
+		this.keys = new ArrayList<T>();
+		for (T key : set) {
+			this.keys.add(key);
+		}		this.values = keys;
 		size = (int) Math.pow(2, (int) Math.ceil(Math.log(keys.size() * keys.size()) / Math.log(2)));
 		if (size == 1) {
 			size += 2;

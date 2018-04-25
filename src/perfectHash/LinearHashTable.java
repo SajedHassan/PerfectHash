@@ -1,17 +1,25 @@
 package perfectHash;
 
 import java.util.ArrayList;
-
+import java.util.HashSet;
+import java.util.Set;
 
 import interfaces.IHashTable;
 import interfaces.INode;
 
 public class LinearHashTable<T extends Comparable<T>> implements IHashTable<T> {
 	private final ArrayList<T> staticKeys;
+	Set<T> set = new HashSet<T>();
 	private INode<T> hashTable[];
 	private UniversalHashMatrix<T> uniHash;
 	public LinearHashTable(ArrayList<T> newKeys) {
-		staticKeys = newKeys;
+		for (T key : newKeys) {
+			set.add(key);
+		}
+		staticKeys = new ArrayList<T>();
+		for (T key : set) {
+			staticKeys.add(key);
+		}
 		uniHash = new UniversalHashMatrix<>(staticKeys.size());
 		createHashTable();
 		hashSecondLevel();
